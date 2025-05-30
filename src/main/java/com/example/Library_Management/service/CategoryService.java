@@ -3,6 +3,7 @@ package com.example.Library_Management.service;
 import com.example.Library_Management.dto.request.CategoryRequest;
 import com.example.Library_Management.dto.response.CategoryResponse;
 import com.example.Library_Management.entity.Category;
+import com.example.Library_Management.exception.CategoryNotFoundException;
 import com.example.Library_Management.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -23,7 +24,7 @@ public class CategoryService {
 
     public CategoryResponse getById(Long id) {
         Category category = categoryRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Category not found"));
+                .orElseThrow(() -> new CategoryNotFoundException(id));
         return CategoryResponse.mapToDetailsCategoryResponse(category);
     }
 
@@ -34,7 +35,7 @@ public class CategoryService {
 
     public CategoryResponse update(Long id, CategoryRequest request) {
         Category category = categoryRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Category not found"));
+                .orElseThrow(() -> new CategoryNotFoundException(id));
 
         updateCategory(request, category);
         categoryRepository.save(category);
@@ -43,7 +44,7 @@ public class CategoryService {
 
     public void deleteById(Long id) {
         Category category = categoryRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Category not found"));
+                .orElseThrow(() -> new CategoryNotFoundException("Category not found"));
 
         if ((category.getBooks() != null && !category.getBooks().isEmpty()) ||
                 (category.getSubcategories() != null && !category.getSubcategories().isEmpty())) {
@@ -59,7 +60,7 @@ public class CategoryService {
 
         if (request.parentCategoryId() != null) {
             Category parent = categoryRepository.findById(request.parentCategoryId())
-                    .orElseThrow(() -> new RuntimeException("Parent category not found"));
+                    .orElseThrow(() -> new CategoryNotFoundException("Parent category not found"));
             builder.parentCategory(parent);
         }
 
@@ -72,7 +73,7 @@ public class CategoryService {
 
         if (request.parentCategoryId() != null) {
             Category parent = categoryRepository.findById(request.parentCategoryId())
-                    .orElseThrow(() -> new RuntimeException("Parent category not found"));
+                    .orElseThrow(() -> new CategoryNotFoundException("Parent category not found"));
             category.setParentCategory(parent);
         } else {
             category.setParentCategory(null);
