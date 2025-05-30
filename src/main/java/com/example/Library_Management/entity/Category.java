@@ -1,4 +1,4 @@
-package com.example.Library_Management.Entity;
+package com.example.Library_Management.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -6,7 +6,7 @@ import lombok.*;
 import java.util.List;
 
 @Entity
-@Table(name = "authors")
+@Table(name = "category")
 @Getter
 @Setter
 @AllArgsConstructor

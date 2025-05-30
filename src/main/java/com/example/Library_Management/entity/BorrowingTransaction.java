@@ -1,6 +1,6 @@
-package com.example.Library_Management.Entity;
+package com.example.Library_Management.entity;
 
-import com.example.Library_Management.Enums.BorrowingStatus;
+import com.example.Library_Management.enums.BorrowingStatus;
 import jakarta.persistence.*;
 import lombok.*;
 

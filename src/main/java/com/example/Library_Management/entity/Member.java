@@ -1,4 +1,4 @@
-package com.example.Library_Management.Entity;
+package com.example.Library_Management.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,13 +24,11 @@ public class Member {
     private String firstname;
     @Column(nullable = false, length = 80)
     private String lastname;
-
     @Column(nullable = false, unique = true, length = 100)
     private String email;
 
-    @Column(nullable = false)
-    private String password;
-
+    @Column(name = "address")
+    private String address;
 
     @OneToMany(mappedBy = "member" ,fetch = FetchType.LAZY)
     private List<BorrowingTransaction> borrowingTransactions;

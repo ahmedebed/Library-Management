@@ -1,4 +1,4 @@
-package com.example.Library_Management.Entity;
+package com.example.Library_Management.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
