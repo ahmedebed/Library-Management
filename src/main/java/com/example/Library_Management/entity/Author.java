@@ -1,10 +1,8 @@
 package com.example.Library_Management.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
 import java.util.List;
 
 @Entity
@@ -12,6 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
+@Builder
 @NoArgsConstructor
 public class Author {
 
@@ -22,7 +21,7 @@ public class Author {
     @Column(nullable = false, length = 80)
     private String name;
 
-    @Column(length = 1000)
+    @Column(length = 255)
     private String description;
 
     @Column(length = 100)
