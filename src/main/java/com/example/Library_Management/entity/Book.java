@@ -3,6 +3,7 @@ package com.example.Library_Management.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -11,6 +12,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Book {
 
     @Id
@@ -56,4 +58,18 @@ public class Book {
 
     @OneToMany(mappedBy = "book",fetch = FetchType.LAZY)
     private List<BorrowingTransaction> borrowingTransactions;
+
+    public void clearAuthors() {
+        if (this.authors != null) {
+            this.authors.clear();
+        }
+    }
+
+    public void addAuthors(List<Author> newAuthors) {
+        if (this.authors != null) {
+            this.authors.addAll(newAuthors);
+        } else {
+            this.authors = new ArrayList<>(newAuthors);
+        }
+    }
 }

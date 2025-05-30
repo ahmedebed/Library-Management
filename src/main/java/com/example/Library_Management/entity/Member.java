@@ -1,10 +1,7 @@
 package com.example.Library_Management.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -13,6 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
+@Builder
 @NoArgsConstructor
 public class Member {
 
@@ -26,7 +24,6 @@ public class Member {
     private String lastname;
     @Column(nullable = false, unique = true, length = 100)
     private String email;
-
     @Column(name = "address")
     private String address;
 
