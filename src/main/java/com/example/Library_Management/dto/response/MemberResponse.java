@@ -13,6 +13,7 @@ public record MemberResponse(
 ) {
     public static MemberResponse mapToMemberResponse(Member member) {
         return MemberResponse.builder()
+                .id(member.getId())
                 .firstname(member.getFirstname())
                 .lastname(member.getLastname())
                 .email(member.getEmail())

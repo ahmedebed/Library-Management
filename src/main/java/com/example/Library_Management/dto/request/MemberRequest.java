@@ -21,7 +21,7 @@ public record MemberRequest(
 
         @NotBlank(message = "Email is required", groups = {OnCreate.class})
         @Email(message = "Invalid email format", groups = {OnCreate.class, OnUpdate.class})
-        @DuplicatedEmail(groups = {OnCreate.class, OnUpdate.class})
+        @DuplicatedEmail(groups = {OnCreate.class})
         @OptionalNotBlank(groups = OnUpdate.class)
         String email,
         String address
