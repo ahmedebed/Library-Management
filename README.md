@@ -36,6 +36,14 @@ The project uses Maven as the build tool. Below is a summary of important depend
 - Testing dependencies for unit and security tests
 ## Database ERD
 ![ERD Diagram](ERD/ERG.png)
+## Sample Admin User Data
+
+To initialize the database with an admin user, you can run the following SQL query:
+```sql
+INSERT INTO users (email, firstname, lastname, password, role)
+VALUES ('admin@library.com', 'ahmed', 'ebed', '$2a$10$wHJWHIM1xoPPqG0sYQT/peDiAQIauIvU5sjNI4/AjK0M0/0IN.7bS', 'ADMIN');
+"password": "Ahmed123@"
+
 ## Access Rules (URL Patterns)
 
 | URL Pattern          | Access Allowed                  |
