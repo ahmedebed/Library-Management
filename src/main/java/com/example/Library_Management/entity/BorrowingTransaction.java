@@ -11,6 +11,7 @@ import java.time.ZonedDateTime;
 @Getter
 @Setter
 @AllArgsConstructor
+@Builder
 @NoArgsConstructor
 public class BorrowingTransaction {
 

@@ -55,5 +55,12 @@ public record BookResponse(
                 .authors(authorResponses)
                 .build();
     }
+    public static BookResponse mapToBookBasicResponse(Book book) {
+        return BookResponse.builder()
+                .id(book.getId())
+                .title(book.getTitle())
+                .build();
+    }
+
 }
 
