@@ -34,6 +34,8 @@ The project uses Maven as the build tool. Below is a summary of important depend
 - `lombok`: To reduce boilerplate code like getters/setters
 - `jjwt-api`, `jjwt-impl`, `jjwt-jackson`: Libraries for JWT token creation and validation
 - Testing dependencies for unit and security tests
+## Database ERD
+![ERD Diagram](ERD/ERG.png)
 ## Access Rules (URL Patterns)
 
 | URL Pattern          | Access Allowed                  |
